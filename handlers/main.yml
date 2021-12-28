@@ -4,4 +4,3 @@
   systemd:
     name: zabbix-agent
     state: restarted
-
