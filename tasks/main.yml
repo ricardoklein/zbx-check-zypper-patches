@@ -1,0 +1,18 @@
+---
+# tasks file for zbx-check-zypper-patches
+- name: ZBX CHECK | Zypper Patches | CRON
+  cron:
+    name:   "check_zypper_patches"
+    user:   "root"
+    minute: "5"
+    #job:    "zypper list-patches --category {{ zypper_check_for }} | grep \"patches needed\" | cut -d' ' -f1 > /tmp/pending_security_patches"
+    job:    "PATCHES=$(zypper list-patches --category {{ zypper_check_for }} | grep \"patches needed\" | cut -d' ' -f1) && if [ -z $PATCHES ]; then PATCHES=\"0\" ; fi && echo -ne $PATCHES > {{ zypper_check_file }}"
+
+- name: ZBX CHECK | Zypper Patches | UserParameter
+  ansible.builtin.template:
+    src:   zypper_patch_check.conf.j2
+    dest:  /etc/zabbix/zabbix_agentd.d/zypper_patch_check.conf
+    owner: root
+    group: zabbix
+    mode:  '0755'
+

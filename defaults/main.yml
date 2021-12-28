@@ -1,0 +1,4 @@
+---
+# defaults file for zbx-check-zypper-patches
+zypper_check_for: "security"
+zypper_check_file: "/tmp/available_zypper_patches"
