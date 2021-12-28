@@ -1,2 +1,7 @@
 ---
 # handlers file for zbx-check-zypper-patches
+- name: restart_zabbix_agent
+  systemd:
+    name: zabbix-agent
+    state: restarted
+
