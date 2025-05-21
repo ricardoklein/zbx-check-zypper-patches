@@ -5,8 +5,7 @@
     name:   "check_zypper_patches"
     user:   "root"
     minute: "5"
-    #job:    "zypper list-patches --category {{ zypper_check_for }} | grep \"patches needed\" | cut -d' ' -f1 > /tmp/pending_security_patches"
-    job:    "PATCHES=$(zypper list-patches --category {{ zypper_check_for }} | grep \"patches needed\" | cut -d' ' -f1) && if [ -z $PATCHES ]; then PATCHES=\"0\" ; fi && echo -ne $PATCHES > {{ zypper_check_file }}"
+    job:    "PATCHES=$(zypper list-patches --category {{ zypper_check_for }} | grep \"security patch\" | cut -d' ' -f1) && if [ -z $PATCHES ]; then PATCHES=\"0\" ; fi && echo -ne $PATCHES > {{ zypper_check_file }}"
 
 - name: ZBX CHECK | Zypper Patches | UserParameter
   ansible.builtin.template:
