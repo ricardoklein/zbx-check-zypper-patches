@@ -2,4 +2,5 @@
 # defaults file for zbx-check-zypper-patches
 zypper_check_for: "security"
 zypper_check_file: "/tmp/available_zypper_patches"
-zabbix_service_name: "zabbix-agent"
+zabbix_service_name: "zabbix-agent2"
+zabbix_userparameter_path: "/etc/zabbix/zabbix_agent2.d"

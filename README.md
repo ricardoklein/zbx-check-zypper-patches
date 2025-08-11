@@ -18,7 +18,7 @@ Everything is setup by defaults/main.yml (you can check there and overrite in yo
 Dependencies
 ------------
 
-[zabbix-agent](https://galaxy.ansible.com/ricardoklein/ansible_zabbix_agent)
+[zabbix-agent](https://galaxy.ansible.com/ricardoklein/ansible_zabbix_agent) min version 4.0.0
 
 Example Playbook
 ----------------

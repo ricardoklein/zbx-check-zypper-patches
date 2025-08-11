@@ -10,7 +10,7 @@
 - name: ZBX CHECK | Zypper Patches | UserParameter
   ansible.builtin.template:
     src:   zypper_patch_check.conf.j2
-    dest:  /etc/zabbix/zabbix_agentd.d/zypper_patch_check.conf
+    dest:  "{{ zabbix_userparameter_path }}/zypper_patch_check.conf"
     owner: root
     group: zabbix
     mode:  '0755'
